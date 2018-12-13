@@ -1,5 +1,6 @@
 package com.accounting.one.accountingapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,6 +24,11 @@ public class MainFragment extends Fragment {
     private ListView listView;
 
     private String date = "";
+
+    @SuppressLint("ValidFragment")
+    public MainFragment(String date) {
+        this.date = date;
+    }
 
     //获取根视图
     @Nullable

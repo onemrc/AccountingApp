@@ -34,7 +34,7 @@
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No record for today"
+            android:text="今天没有记账"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             />
