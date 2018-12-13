@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.accounting.one.accountingapp.db.RecordBean;
+
+import java.util.LinkedList;
+
 /**
  * Created by one on 2018/12/13.
  * 描述：
@@ -22,12 +26,20 @@ public class MainFragment extends Fragment {
     private View rootView;
     private TextView textView;
     private ListView listView;
+    private ListViewAdapter listViewAdapter;
+
+    private LinkedList<RecordBean> records = new LinkedList<>();
 
     private String date = "";
 
     @SuppressLint("ValidFragment")
     public MainFragment(String date) {
         this.date = date;
+
+        records.add(new RecordBean());
+        records.add(new RecordBean());
+        records.add(new RecordBean());
+        records.add(new RecordBean());
     }
 
     //获取根视图
@@ -44,6 +56,13 @@ public class MainFragment extends Fragment {
         listView = rootView.findViewById(R.id.listView);
 
         textView.setText(date);
+        listViewAdapter = new ListViewAdapter(getContext());
+        listViewAdapter.setData(records);
+        listView.setAdapter(listViewAdapter);
+
+        if (listViewAdapter.getCount() > 0){
+            rootView.findViewById(R.id.no_record_layout).setVisibility(View.INVISIBLE);
+        }
     }
 
 
